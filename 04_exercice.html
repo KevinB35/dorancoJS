@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04 - Exercice</title>
+    <style>
+      #container {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .small {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      #red {
+        background-color: red;
+      }
+      #green {
+        background-color: green;
+      }
+      #blue {
+        background-color: blue;
+      }
+      #darkred {
+        background-color: darkred;
+      }
+      #darkgreen {
+        background-color: darkgreen;
+      }
+      #darkblue {
+        background-color: darkblue;
+      }
+      #big {
+        display: block;
+        width: 318px;
+        height: 318px;
+        background-color: red;
+      }
+      #red:focus ~ #big {
+        background-color: red;
+      }
+      #green:focus ~ #big {
+        background-color: green;
+      }
+      #blue:focus ~ #big {
+        background-color: blue;
+      }
+      #darkgreen:focus ~ #big {
+        background-color: darkgreen;
+      }
+      #darkred:focus ~ #big {
+        background-color: darkred;
+      }
+      #darkblue:focus ~ #big {
+        background-color: darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="smallContainer">
+        <!-- Avec focus, mais la couleur disparait des qu'on clique ailleurs (Et donc change le focus)-->
+        <button class="small" id="red"></button>
+        <button class="small" id="green"></button>
+        <button class="small" id="blue"></button>
+        <button class="small" id="darkred"></button>
+        <button class="small" id="darkgreen"></button>
+        <button class="small" id="darkblue"></button>
+        <div id="big"></div>
+      </div>
+    </div>
+  </body>
+</html>
