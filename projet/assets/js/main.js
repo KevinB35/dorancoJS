@@ -167,7 +167,10 @@ const getBitcoinData = () => {
       console.log(data);
       apiDiv.innerText = `Prix Bitcoin: ${data["EUR"].buy}€`;
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      apiDiv.innerText = `Prix Bitcoin: Erreur`;
+    });
 };
 
 console.log(RAND_NUMBER);
