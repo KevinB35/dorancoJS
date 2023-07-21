@@ -3,6 +3,8 @@ const RAND_NUMBER = Math.floor(Math.random() * 1000)
   .toString()
   .padStart(3, "0");
 const LIST_NUMBERS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]; // Utilisé pour generer le pave numerique
+const BITCOIN_API_URL = "https://blockchain.info/ticker";
+
 let userInput = ""; // Le nombre entre par l'utilisateur
 let tries = 1; //Le nombre d'essai de l'utilisateur
 let time = 0; // Timer
@@ -15,6 +17,7 @@ const numberTestDivs = document.getElementsByClassName("numberTest");
 const image = document.getElementById("image");
 const rightContainer = document.getElementById("rightContainer");
 const containers = document.getElementsByClassName("container");
+const apiDiv = document.getElementById("api");
 
 // Timer
 const interval = setInterval(() => {
@@ -154,6 +157,20 @@ const onClickHandler = (e) => {
   }
 };
 
+/**
+ *
+ */
+const getBitcoinData = () => {
+  fetch(BITCOIN_API_URL)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      apiDiv.innerText = `Prix Bitcoin: ${data["EUR"].buy}€`;
+    })
+    .catch((err) => console.error(err));
+};
+
 console.log(RAND_NUMBER);
 
 generateNumberDivs();
+getBitcoinData();
